@@ -1,0 +1,16 @@
+[[tasks]]
+type = "StartUp"
+params = { client_type = "Official", start_game_enabled = true }
+
+[[tasks]]
+type = "Roguelike"
+[tasks.params]
+theme = "Sami"
+mode = 1 
+# squad = "心胜于物分队"
+# roles = "稳扎稳打"
+# core_char = "寒芒克洛丝"
+# refresh_trader_with_dice = true  
+
+[[tasks]]
+type = "CloseDown"

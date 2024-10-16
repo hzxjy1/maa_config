@@ -1,0 +1,88 @@
+#----------------------------- StartUp ----------------------------#
+[[tasks]]
+type = "StartUp"
+params = { client_type = "Official", start_game_enabled = true }
+
+#------------------------------ Fight -----------------------------#
+[[tasks]]
+type = "Fight"
+
+[tasks.params]
+expiring_medicine = 3
+report_to_penguin = true
+penguin_id = "682839094"
+
+[[tasks.variants]]
+params = { stage = "GO-7" }
+condition = { type = "DateTime", start = "2024-10-01T16:00:00", end = "2024-10-23T03:59:59" }
+
+# [[tasks.variants]]
+# condition = { type = "Weekday", weekdays = ["Mon", "Thu", "Sat", "Sun"] }
+# params = { stage = "AP-5" }
+
+# [[tasks.variants]]
+# condition = { type = "Weekday", weekdays = ["Tue", "Thu", "Sat", "Sun"] }
+# params = { stage = "CE-6" }
+
+[[tasks.variants]]
+params = { stage = "1-7" }
+
+#----------------------------- Infrast ----------------------------#
+[[tasks]]
+type = "Infrast"
+
+[tasks.params]
+facility = ["Trade", "Reception", "Mfg", "Control", "Power", "Office", "Dorm"]
+drones = "Money"
+replenish = true
+dorm_trust_enabled = true
+
+[[tasks.variants]]
+condition = { type = "Time", end = "12:00:00" }
+params = { plan_index = 1 }
+
+[[tasks.variants]]
+condition = { type = "Time", start = "12:00:00", end = "18:00:00" }
+params = { plan_index = 2 }
+
+[[tasks.variants]]
+condition = { type = "Time", start = "18:00:00" }
+params = { plan_index = 0 }
+
+#------------------------------ Mall ------------------------------#
+# Mall after 18:00
+[[tasks]]
+type = "Mall"
+[tasks.params]
+shopping = true
+buy_first = ["招聘许可", "龙门币"]
+blacklist = ["碳", "家具", "加急许可"]
+
+# [[tasks.variants]]
+# condition = { type = "Time", start = "18:00:00" }
+
+#----------------------------- Recruit ----------------------------#
+# Recruit after 18:00
+[[tasks]]
+type = "Recruit"
+
+[tasks.params]
+refresh = true
+select = [4, 5]
+confirm = [3, 4, 5]
+times = 4
+skip_robot = false
+report_to_penguin = true
+penguin_id = "682839094"
+
+# [[tasks.variants]]
+# condition = { type = "Time", start = "18:00:00" }
+# params = { times = 4 }
+
+#------------------------------ Award -----------------------------#
+[[tasks]]
+type = "Award"
+
+#--------------------------- Close Game ---------------------------#
+[[tasks]]
+type = "CloseDown"
